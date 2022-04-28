@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Lobster&family=Luckiest+Guy&family=Noto+Sans:wght@300&family=Open+Sans:wght@500;600;700&family=Poppins:wght@400;500;600&family=Special+Elite&family=Tapestry&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/** CONTAINER  */
+.container {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  inset: 0;
+  min-height: 100vh;
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+
+/** Video background */
+.container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+/** HEADER */
+.container .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  z-index: 100;
+}
+/** RESET TEXT-DECORATION */
+a {
+  text-decoration: none;
+}
+/** LOGO */
+
+.header .logo {
+  font-size: 3em;
+  color: #fff;
+  font-family: "Tapestry", cursive;
+  font-weight: 800;
+  transition: color 1s;
+}
+
+.header .logo:hover {
+  color: #000;
+}
+/** NAVIGATION BAR */
+
+.header .navbar {
+  display: flex;
+  list-style-type: none;
+}
+
+.header .navbar li {
+  padding-left: 30px;
+}
+.navbar li a {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  letter-spacing: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navbar li:hover a {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar li a::before {
+  content: "";
+  border-radius: 3px;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #d9d9d9;
+  transform: scale(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+.navbar li a::after {
+  content: "";
+  border-radius: 3px;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.navbar li:hover a::before {
+  transform: scale(1) translateY(-5px);
+  transform-origin: left;
+}
+.navbar li:hover a::after {
+  transform: scale(1) translateY(5px);
+  transform-origin: right;
+}
+/** CONTENT */
+
+.container .content {
+  position: absolute;
+  max-width: 700px;
+  line-height: 1.2;
+  z-index: 2;
+}
+.content .text h1 {
+  text-transform: uppercase;
+  font-size: 4em;
+}
+.content .text h2 {
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+.text p {
+  padding: 20px 0;
+  font-size: 1em;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/** BUTTON */
+
+.text .button {
+  display: inline-block;
+  color: #fff;
+  padding: 15px 35px;
+  background-color: #000;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  font-family: "Luckiest Guy", cursive;
+  overflow: hidden;
+  transition: 0.8s;
+  overflow: hidden;
+
+}
+.text .button:hover {
+  color: #000;
+  background-color: #2196f3;
+  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+}
+
+/** Social Icon */
+.social {
+  --margin: 20px;
+  position: fixed;
+  list-style-type: none;
+  left: calc(100px - var(--margin));
+  bottom: 2em;
+  display: flex;
+  z-index: 100;
+}
+.social li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 var(--margin);
+  position: relative;
+  transition: transform 0.5s;
+}
+.social li a.facebook {
+  color: #fff;
+  background-color: #4b69b1;
+}
+.social li a.instagram {
+  color: #fff;
+  background-image: linear-gradient(90deg, #f7ab50, #564f9d);
+}
+.social li a.youtube {
+  color: #fff;
+  background-color: #e83f3a;
+}
+.social li a::before,
+.social li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: rgba(134, 205, 227, 0.6);
+  z-index: -1;
+  animation: pulse 2s ease-out infinite;
+  transition: all 0.4s;
+}
+.social li a::before {
+  animation: pulse 3s ease-out infinite;
+}
+.social li a::after {
+  animation: pulse 2s ease-out 1s infinite;
+}
+@keyframes pulse {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.social li a:hover {
+  transform: translateY(-10px);
+}
+/** BAR - CLOSE */
+.hamburger{
+  display: none;
+  padding: 5px 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background-color .3s;
+}
+.hamburger:hover{
+  background-color:rgba(0,0,0,0.3);
+}
+
+.bar{
+  display: block;
+  width: 32px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 6px;
+  transition: all .5s;
+  position: relative;
+}
+
+/** Common responsive */ 
+@media only screen and (max-width: 930px) {
+  .header .navbar{
+    position: fixed;
+    inset: 80px 0 0 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(134, 205, 227, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: -100%; 
+    transition: all .5s;
+    z-index: 100;
+  }
+  .header .navbar.active{
+    left: 0;
+  }
+  .header .navbar li {
+    margin-bottom: 4em;
+    padding: 0 50%;
+  }
+
+  .navbar li a {
+    display: block;
+    color: #000;
+    font-size: 18px;
+    font-weight: 900;
+    padding:0 25px;
+  }
+
+  .social li a {
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+  }
+  .hamburger{
+    display: block;
+    padding: 5px 5px;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(10px) rotate(45deg);
+  }
+   .hamburger.active .bar:nth-child(2){
+    transform:translateX(-1000%);
+  }
+   .hamburger.active .bar:nth-child(3){
+    transform: translateY(-11px) rotate(-45deg);
+  }
+  
+}
+
+/** Reponsive for mobile: ip5/ES */
+
+/** Reponsive for mobile: ip6/7/8 plus + small tablet */
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .container .header {
+    padding: 0 30px;
+  }
+
+  .social {
+    left: 30px;
+  }
+  .social li a {
+    font-size: 1em;
+    width: 30px;
+    height: 30px;
+  }
+
+  .content .text h1 {
+    font-size: 3em;
+  }
+  .content .text h2 {
+    font-size: 2em;
+  }
+  .content .text p {
+    font-size: 16px;
+    max-width: 305px;
+  }
+} 
+/** Reponsive for mobile: Ipad + small tablet */
+ @media only screen and (max-width: 1024px) {
+  .container {
+    padding: 60px;
+  }
+  .container .header {
+    padding: 0 60px;
+  }
+
+  .social {
+    left: 60px;
+  }
+  .social li a {
+    font-size: 1em;
+    width: 30px;
+    height: 30px;
+  }
+  .content .text {
+    max-width: 400px;
+  }
+} 
